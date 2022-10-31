@@ -36,11 +36,11 @@ class MainFragment : Fragment() {
     }
 
     private fun setObservers() {
-        viewModel.isGoToFeatureClicked.observe(viewLifecycleOwner) {
+        viewModel.goToFeatureFragmentListener.observe(viewLifecycleOwner) {
             findNavController().navigate(R.id.action_mainFragment_to_featureFragment)
         }
 
-        viewModel.isGoToSecondMainClicked.observe(viewLifecycleOwner) {
+        viewModel.goToSecondMainFragmentListener.observe(viewLifecycleOwner) {
             findNavController().navigate(R.id.action_mainFragment_to_secondMainFragment)
         }
     }

@@ -4,7 +4,7 @@ import javax.inject.Inject
 
 class SomeAPI @Inject constructor(): API {
 
-    override fun getSmthFromNetwork(): String {
-        return "Something returned from API"
+    override fun getDataFromNetwork(): String {
+        return "Data returned from API\nAPI: $this"
     }
 }

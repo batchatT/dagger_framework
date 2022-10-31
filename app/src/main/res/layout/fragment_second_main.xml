@@ -19,18 +19,18 @@
             android:id="@+id/data_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.secondMainText}"
+            android:text="@{viewModel.secondMainFragmentDataText}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/get_data_button"
+            android:id="@+id/get_data_from_network_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="get data"
-            android:onClick="@{() -> viewModel.getSmthFromNetwork()}"
+            android:onClick="@{() -> viewModel.getDataFromNetwork()}"
             app:layout_constraintTop_toBottomOf="@id/data_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

@@ -10,11 +10,11 @@ class FeatureViewModel @Inject constructor(
    val featureRepository: FeatureRepository
 ) : ViewModel() {
 
-    val dataFromFeature: LiveData<String>
-        get() = _dataFromFeature
-    private val _dataFromFeature = MutableLiveData("Initial data")
+    val dataText: LiveData<String>
+        get() = _dataText
+    private val _dataText = MutableLiveData("Initial data")
 
-    fun getDataFromFeatureRepository() {
-        _dataFromFeature.value = featureRepository.getSmthFromFeature()
+    fun getDataFromDB() {
+        _dataText.value = featureRepository.getDataFromDBForFeature()
     }
 }

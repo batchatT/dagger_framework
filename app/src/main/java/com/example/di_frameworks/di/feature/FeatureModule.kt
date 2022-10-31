@@ -11,8 +11,8 @@ import dagger.Module
 interface FeatureModule {
 
     @Binds
-    fun getFeatureViewModel(viewModel: FeatureViewModel): ViewModel
+    fun provideFeatureViewModel(viewModel: FeatureViewModel): ViewModel
 
     @Binds
-    fun getFeatureData(repo: FeatureRepositoryImpl): FeatureRepository
+    fun provideFeatureRepository(repo: FeatureRepositoryImpl): FeatureRepository
 }

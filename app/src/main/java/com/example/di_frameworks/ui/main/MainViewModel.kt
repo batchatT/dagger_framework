@@ -3,43 +3,43 @@ package com.example.di_frameworks.ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.di_frameworks.repo.GetSmthRepository
+import com.example.di_frameworks.repo.Repository
 import com.example.di_frameworks.ui.SingleLiveEvent
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
-    val repository: GetSmthRepository
+    private val repository: Repository
 ) : ViewModel() {
 
-    val mainText: LiveData<String>
-        get() = _mainText
-    private val _mainText = MutableLiveData("Main Text!")
+    val mainFragmentDataText: LiveData<String>
+        get() = _mainFragmentDataText
+    private val _mainFragmentDataText = MutableLiveData("Initial data")
 
-    val secondMainText: LiveData<String>
-        get() = _secondMainText
-    private val _secondMainText = MutableLiveData("Second Main Text!")
+    val secondMainFragmentDataText: LiveData<String>
+        get() = _secondMainFragmentDataText
+    private val _secondMainFragmentDataText = MutableLiveData("Initial data")
 
-    val isGoToFeatureClicked: SingleLiveEvent<Void>
-        get() = _isGoToFeatureClicked
-    private val _isGoToFeatureClicked = SingleLiveEvent<Void>()
+    val goToFeatureFragmentListener: SingleLiveEvent<Void>
+        get() = _goToFeatureFragmentListener
+    private val _goToFeatureFragmentListener = SingleLiveEvent<Void>()
 
-    val isGoToSecondMainClicked: SingleLiveEvent<Void>
-        get() = _isGoToSecondMainClicked
-    private val _isGoToSecondMainClicked = SingleLiveEvent<Void>()
+    val goToSecondMainFragmentListener: SingleLiveEvent<Void>
+        get() = _goToSecondMainFragmentListener
+    private val _goToSecondMainFragmentListener = SingleLiveEvent<Void>()
 
-    fun getSmthFromNetwork() {
-        _secondMainText.value = repository.getSmthFromNetwork()
+    fun getDataFromNetwork() {
+        _secondMainFragmentDataText.value = repository.getDataFromNetwork()
     }
 
-    fun getSmthFromDB() {
-        _mainText.value = repository.getSmthFromDB()
+    fun getDataFromDB() {
+        _mainFragmentDataText.value = repository.getDataFromDB()
     }
 
-    fun goToFeatureClicked() {
-        _isGoToFeatureClicked.call()
+    fun onGoToFeatureFragmentClick() {
+        _goToFeatureFragmentListener.call()
     }
 
-    fun goToSecondMainClicked() {
-        _isGoToSecondMainClicked.call()
+    fun onGoToSecondMainFragmentClick() {
+        _goToSecondMainFragmentListener.call()
     }
 }

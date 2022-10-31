@@ -9,5 +9,5 @@ import dagger.Provides
 class APIModule {
 
     @Provides
-    fun getSmthFromApi(): API = SomeAPI()
+    fun provideApi(): API = SomeAPI()
 }

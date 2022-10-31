@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.di_frameworks.ui.feature.FeatureViewModel" />
@@ -14,24 +15,24 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/main_text"
+            android:id="@+id/data_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.dataFromFeature}"
+            android:text="@{viewModel.dataText}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/from_network_button"
+            android:id="@+id/get_data_from_network_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="get from feature"
-            android:onClick="@{() -> viewModel.getDataFromFeatureRepository()}"
+            android:onClick="@{() -> viewModel.getDataFromDB()}"
+            android:text="get data from feature"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/main_text" />
+            app:layout_constraintTop_toBottomOf="@id/data_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

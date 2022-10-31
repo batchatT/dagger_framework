@@ -1,7 +1,7 @@
 package com.example.di_frameworks.di.main
 
-import com.example.di_frameworks.repo.GetSmthRepositoryImpl
-import com.example.di_frameworks.repo.GetSmthRepository
+import androidx.lifecycle.ViewModel
+import com.example.di_frameworks.ui.main.MainViewModel
 import dagger.Binds
 import dagger.Module
 
@@ -9,5 +9,5 @@ import dagger.Module
 interface ViewModelModule {
 
     @Binds
-    fun getSmthFromNetworkRepository(repo: GetSmthRepositoryImpl): GetSmthRepository
+    fun provideMainViewModel(viewModel: MainViewModel): ViewModel
 }

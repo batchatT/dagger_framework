@@ -8,7 +8,7 @@ import kotlin.properties.Delegates.notNull
 
 @Component(
     modules = [FeatureModule::class],
-    dependencies = [ApplicationDeps::class]
+    dependencies = [MainDeps::class]
 )
 internal interface FeatureComponent {
 
@@ -17,33 +17,33 @@ internal interface FeatureComponent {
     @Component.Builder
     interface Builder {
 
-        fun deps(applicationDeps: ApplicationDeps): Builder
+        fun deps(applicationMainDeps: MainDeps): Builder
 
         fun build(): FeatureComponent
     }
 }
 
-interface ApplicationDeps {
+interface MainDeps {
 
     val dataBase: DataBase
 }
 
-interface ApplicationDepsProvider {
+interface MainDepsProvider {
 
-    val deps: ApplicationDeps
+    val mainDeps: MainDeps
 
-    companion object : ApplicationDepsProvider by ApplicationDepsStore
+    companion object : MainDepsProvider by MainDepsStore
 }
 
-object ApplicationDepsStore : ApplicationDepsProvider {
+object MainDepsStore : MainDepsProvider {
 
-    override var deps: ApplicationDeps by notNull()
+    override var mainDeps: MainDeps by notNull()
 }
 
 internal class FeatureComponentViewModel : ViewModel() {
 
     val featureComponent = DaggerFeatureComponent
         .builder()
-        .deps(ApplicationDepsProvider.deps)
+        .deps(MainDepsProvider.mainDeps)
         .build()
 }

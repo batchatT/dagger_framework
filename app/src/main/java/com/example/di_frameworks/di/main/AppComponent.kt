@@ -2,20 +2,22 @@ package com.example.di_frameworks.di.main
 
 import android.app.Application
 import com.example.di_frameworks.db.DataBase
-import com.example.di_frameworks.di.feature.ApplicationDeps
-import com.example.di_frameworks.di.second_main.SecondMainComponent
+import com.example.di_frameworks.di.feature.MainDeps
+import com.example.di_frameworks.di.second_main.SecondAppComponent
 import com.example.di_frameworks.ui.main.MainActivity
 import com.example.di_frameworks.ui.main.MainFragment
 import dagger.*
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [
-    MainModule::class,
+    DataModule::class,
     ViewModelModule::class,
     RepositoryModule::class]
 )
-interface AppComponent : ApplicationDeps{
+interface AppComponent : MainDeps {
 
-    fun createSecondMainComponent(): SecondMainComponent.Builder
+    fun createSecondMainComponent(): SecondAppComponent.Builder
 
     override val dataBase: DataBase
 

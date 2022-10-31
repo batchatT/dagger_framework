@@ -14,44 +14,44 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/main_text"
+            android:id="@+id/data_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.mainText}"
+            android:text="@{viewModel.mainFragmentDataText}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/from_db_button"
+            android:id="@+id/get_data_from_db_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="get from db"
-            android:onClick="@{() -> viewModel.getSmthFromDB()}"
+            android:onClick="@{() -> viewModel.getDataFromDB()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/main_text" />
+            app:layout_constraintTop_toBottomOf="@id/data_text" />
 
         <Button
-            android:id="@+id/to_feature_fragment_button"
+            android:id="@+id/go_to_feature_fragment_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="go to feature fragment"
-            android:onClick="@{() -> viewModel.goToFeatureClicked()}"
+            android:onClick="@{() -> viewModel.onGoToFeatureFragmentClick()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/from_db_button" />
+            app:layout_constraintTop_toBottomOf="@id/get_data_from_db_button" />
 
         <Button
-            android:id="@+id/to_second_main_fragment_button"
+            android:id="@+id/go_to_second_main_fragment_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="go to second main fragment"
-            android:onClick="@{() -> viewModel.goToSecondMainClicked()}"
+            android:onClick="@{() -> viewModel.onGoToSecondMainFragmentClick()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/to_feature_fragment_button" />
+            app:layout_constraintTop_toBottomOf="@id/go_to_feature_fragment_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

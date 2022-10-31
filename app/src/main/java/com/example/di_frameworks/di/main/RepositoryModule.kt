@@ -1,9 +1,7 @@
 package com.example.di_frameworks.di.main
 
-import com.example.di_frameworks.db.DataBase
-import com.example.di_frameworks.db.GetSmthFromDBImpl
-import com.example.di_frameworks.network.API
-import com.example.di_frameworks.network.SomeAPI
+import com.example.di_frameworks.repo.Repository
+import com.example.di_frameworks.repo.RepositoryImpl
 import dagger.Binds
 import dagger.Module
 
@@ -11,8 +9,5 @@ import dagger.Module
 interface RepositoryModule {
 
     @Binds
-    fun getSmthFromDB(db: GetSmthFromDBImpl): DataBase
-
-    @Binds
-    fun getSmthFromApi(api: SomeAPI): API
+    fun getSmthFromNetworkRepository(repo: RepositoryImpl): Repository
 }
